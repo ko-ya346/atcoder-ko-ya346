@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>
+   A - Blackjack
+  </title>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta content="en" http-equiv="Content-Language"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <meta content="telephone=no" name="format-detection"/>
+  <meta content="nXGC_JxO0yoP1qBzMnYD_xgufO6leSLw1kyNo2HZltM" name="google-site-verification">
+   <meta content="AtCoder is a programming contest site for anyone from beginners to experts. We hold weekly programming contests online." name="description"/>
+   <meta content="AtCoder Inc." name="author"/>
+   <meta content="AtCoder" property="og:site_name"/>
+   <meta content="A - Blackjack" property="og:title">
+    <meta content="AtCoder is a programming contest site for anyone from beginners to experts. We hold weekly programming contests online." property="og:description">
+     <meta content="website" property="og:type">
+      <meta content="https://atcoder.jp/contests/abc147/tasks/abc147_a" property="og:url">
+       <meta content="https://img.atcoder.jp/assets/atcoder.png" property="og:image">
+        <meta content="summary" name="twitter:card">
+         <meta content="@atcoder" name="twitter:site"/>
+         <meta content="A - Blackjack" property="twitter:title"/>
+         <link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css"/>
+         <link href="/public/css/bootstrap.min.css?v=202004031917" rel="stylesheet" type="text/css"/>
+         <link href="/public/css/base.css?v=202004031917" rel="stylesheet" type="text/css"/>
+         <link href="//img.atcoder.jp/assets/favicon.png" rel="shortcut icon" type="image/png"/>
+         <link href="//img.atcoder.jp/assets/atcoder.png" rel="apple-touch-icon"/>
+         <script src="/public/js/lib/jquery-1.9.1.min.js?v=202004031917">
+         </script>
+         <script src="/public/js/lib/bootstrap.min.js?v=202004031917">
+         </script>
+         <script src="//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js">
+         </script>
+         <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js">
+         </script>
+         <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/ja.js">
+         </script>
+         <script>
+          var LANG = "en";
+		var userScreenName = "";
+		var csrfToken = "B9iLYxKByPC7FCIplCjGJXrsqPKbryxySNi47T4imuc="
+         </script>
+         <script src="/public/js/utils.js?v=202004031917">
+         </script>
+         <script src="/public/js/contest.js?v=202004031917">
+         </script>
+         <link href="/public/css/contest.css?v=202004031917" rel="stylesheet">
+          <script>
+           var contestScreenName = "abc147";
+			var remainingText = "Remaining Time";
+			var countDownText = "Contest begins in";
+			var startTime = moment("2019-12-08T21:00:00+09:00");
+			var endTime = moment("2019-12-08T22:40:00+09:00");
+          </script>
+          <style>
+          </style>
+          <script type="text/x-mathjax-config">
+           MathJax.Hub.Config({messageStyle:"none",tex2jax:{skipTags:["script","noscript","style","textarea","code"],inlineMath:[['\\(','\\)']]},delayStartupUntil:"onload"});
+          </script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
+          </script>
+          <script>
+           $(function(){$('var').each(function(){$(this).html('\\('+$(this).html()+'\\)');});});
+          </script>
+          <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet">
+           <link href="//cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" rel="stylesheet">
+            <script src="/public/js/lib/select2.min.js?v=202004031917">
+            </script>
+            <link href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.min.css" rel="stylesheet"/>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/codemirror.min.js">
+            </script>
+            <script src="/public/js/codeMirror/merged.js?v=202004031917">
+            </script>
+            <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js">
+            </script>
+            <script src="/public/js/base.js?v=202004031917">
+            </script>
+            <script src="/public/js/ga.js?v=202004031917">
+            </script>
+           </link>
+          </link>
+         </link>
+        </meta>
+       </meta>
+      </meta>
+     </meta>
+    </meta>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <div class="modal fade" id="modal-contest-start" role="dialog" tabindex="-1">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        �~
+       </span>
+      </button>
+      <h4 class="modal-title">
+       Contest started
+      </h4>
+     </div>
+     <div class="modal-body">
+      <p>
+       AtCoder Beginner Contest 147 has begun.
+      </p>
+     </div>
+     <div class="modal-footer">
+      <button class="btn btn-default" data-dismiss="modal" type="button">
+       Close
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="modal fade" id="modal-contest-end" role="dialog" tabindex="-1">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        �~
+       </span>
+      </button>
+      <h4 class="modal-title">
+       Contest is over
+      </h4>
+     </div>
+     <div class="modal-body">
+      <p>
+       AtCoder Beginner Contest 147 has ended.
+      </p>
+     </div>
+     <div class="modal-footer">
+      <button class="btn btn-default" data-dismiss="modal" type="button">
+       Close
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="float-container" id="main-div">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+     <div class="navbar-header">
+      <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar-collapse" data-toggle="collapse" type="button">
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+       <span class="icon-bar">
+       </span>
+      </button>
+      <a class="navbar-brand" href="/home">
+      </a>
+     </div>
+     <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+       <li>
+        <a class="contest-title" href="/contests/abc147">
+         AtCoder Beginner Contest 147
+        </a>
+       </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+       <li class="dropdown">
+        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+         <img src="//img.atcoder.jp/assets/top/img/flag-lang/en.png"/>
+         English
+         <span class="caret">
+         </span>
+        </a>
+        <ul class="dropdown-menu">
+         <li>
+          <a href="/contests/abc147/tasks/abc147_a?lang=ja">
+           <img src="//img.atcoder.jp/assets/top/img/flag-lang/ja.png"/>
+           ���{��
+          </a>
+         </li>
+         <li>
+          <a href="/contests/abc147/tasks/abc147_a?lang=en">
+           <img src="//img.atcoder.jp/assets/top/img/flag-lang/en.png"/>
+           English
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="/register?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc147%2Ftasks%2Fabc147_a">
+         Sign Up
+        </a>
+       </li>
+       <li>
+        <a href="/login?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc147%2Ftasks%2Fabc147_a">
+         Sign In
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </nav>
+   <form action="/logout?continue=https%3A%2F%2Fatcoder.jp%2Fcontests%2Fabc147%2Ftasks%2Fabc147_a" method="POST" name="form_logout">
+    <input name="csrf_token" type="hidden" value="B9iLYxKByPC7FCIplCjGJXrsqPKbryxySNi47T4imuc="/>
+   </form>
+   <div class="container" id="main-container" style="padding-top:50px;">
+    <div class="row">
+     <div class="col-sm-12 mb-2 cnvtb-fixed" id="contest-nav-tabs">
+      <div>
+       <small class="contest-duration">
+        Contest Duration:
+        <a href="http://www.timeanddate.com/worldclock/fixedtime.html?iso=20191208T2100&amp;p1=248" target="blank">
+         <time class="fixtime fixtime-full">
+          2019-12-08 21:00:00+0900
+         </time>
+        </a>
+        ~
+        <a href="http://www.timeanddate.com/worldclock/fixedtime.html?iso=20191208T2240&amp;p1=248" target="blank">
+         <time class="fixtime fixtime-full">
+          2019-12-08 22:40:00+0900
+         </time>
+        </a>
+        (local time)
+				(100 minutes)
+       </small>
+       <small class="back-to-home pull-right">
+        <a href="/home">
+         Back to Home
+        </a>
+       </small>
+      </div>
+      <ul class="nav nav-tabs">
+       <li>
+        <a href="/contests/abc147">
+         <span aria-hidden="true" class="glyphicon glyphicon-home">
+         </span>
+         Top
+        </a>
+       </li>
+       <li class="active">
+        <a href="/contests/abc147/tasks">
+         <span aria-hidden="true" class="glyphicon glyphicon-tasks">
+         </span>
+         Tasks
+        </a>
+       </li>
+       <li>
+        <a href="/contests/abc147/clarifications">
+         <span aria-hidden="true" class="glyphicon glyphicon-question-sign">
+         </span>
+         Clarifications
+         <span class="badge" id="clar-badge">
+         </span>
+        </a>
+       </li>
+       <li>
+        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+         <span aria-hidden="true" class="glyphicon glyphicon-list">
+         </span>
+         Results
+         <span class="caret">
+         </span>
+        </a>
+        <ul class="dropdown-menu">
+         <li>
+          <a href="/contests/abc147/submissions">
+           <span aria-hidden="true" class="glyphicon glyphicon-globe">
+           </span>
+           All Submissions
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <a href="/contests/abc147/standings">
+         <span aria-hidden="true" class="glyphicon glyphicon-sort-by-attributes-alt">
+         </span>
+         Standings
+        </a>
+       </li>
+       <li>
+        <a href="/contests/abc147/standings/virtual">
+         <span aria-hidden="true" class="glyphicon glyphicon-sort-by-attributes-alt">
+         </span>
+         Virtual Standings
+        </a>
+       </li>
+       <li>
+        <a href="https://img.atcoder.jp/abc147/editorial.pdf" target="_blank">
+         <span aria-hidden="true" class="glyphicon glyphicon-book">
+         </span>
+         Editorial
+        </a>
+       </li>
+       <li>
+        <a href="https://codeforces.com/blog/entry/71998" target="_blank">
+         <span aria-hidden="true" class="glyphicon glyphicon-comment">
+         </span>
+         Discuss
+        </a>
+       </li>
+       <li class="pull-right">
+        <a href="javascript:void(0)" id="fix-cnvtb">
+         <span aria-hidden="true" class="glyphicon glyphicon-pushpin">
+         </span>
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="col-sm-12">
+      <span class="h2">
+       A - Blackjack
+      </span>
+      <span class="pull-right" id="task-lang-btn">
+       <span data-lang="ja">
+        <img src="//img.atcoder.jp/assets/top/img/flag-lang/ja.png"/>
+       </span>
+       /
+       <span data-lang="en">
+        <img src="//img.atcoder.jp/assets/top/img/flag-lang/en.png"/>
+       </span>
+      </span>
+      <script>
+       $(function() {
+				var ts = $('#task-statement span.lang');
+				if (ts.children('span').size() <= 1) {
+					$('#task-lang-btn').hide();
+					ts.children('span').show();
+					return;
+				}
+				var REMEMBER_LB = 5;
+				var LS_KEY = 'task_lang';
+				var taskLang = getLS(LS_KEY) || '';
+				var changeTimes = 0;
+				if (taskLang == 'ja' || taskLang == 'en') {
+					changeTimes = REMEMBER_LB;
+				} else {
+					var changeTimes = parseInt(taskLang, 10);
+					if (isNaN(changeTimes)) {
+						changeTimes = 0;
+						delLS(LS_KEY);
+					}
+					changeTimes++;
+					taskLang = LANG;
+				}
+				ts.children('span.lang-' + taskLang).show();
+
+				$('#task-lang-btn span').click(function() {
+					var l = $(this).data('lang');
+					ts.children('span').hide();
+					ts.children('span.lang-' + l).show();
+					if (changeTimes < REMEMBER_LB) setLS(LS_KEY, changeTimes);
+					else setLS(LS_KEY, l);
+				});
+			});
+      </script>
+      <hr/>
+      <p>
+       Time Limit: 2 sec / Memory Limit: 1024 MB
+      </p>
+      <div id="task-statement">
+       <span class="lang">
+        <span class="lang-ja">
+         <p>
+          �z�_ :
+          <var>
+           100
+          </var>
+          �_
+         </p>
+         <div class="part">
+          <section>
+           <h3>
+            ��蕶
+           </h3>
+           <p>
+            <var>
+             3
+            </var>
+            �̐���
+            <var>
+             A_1
+            </var>
+            ,
+            <var>
+             A_2
+            </var>
+            ,
+            <var>
+             A_3
+            </var>
+            ���^�����܂��B
+           </p>
+           <p>
+            <var>
+             A_1+A_2+A_3
+            </var>
+            ��
+            <var>
+             22
+            </var>
+            �ȏ�Ȃ�
+            <code>
+             bust
+            </code>
+            �A
+            <var>
+             21
+            </var>
+            �ȉ��Ȃ�
+            <code>
+             win
+            </code>
+            ���o�͂��Ă��������B
+           </p>
+          </section>
+         </div>
+         <div class="part">
+          <section>
+           <h3>
+            ����
+           </h3>
+           <ul>
+            <li>
+             <var>
+              1 \leq A_i \leq 13 \ \ (i=1,2,3)
+             </var>
+            </li>
+            <li>
+             ���͒��̂��ׂĂ̒l�͐����ł���B
+            </li>
+           </ul>
+          </section>
+         </div>
+         <hr/>
+         <div class="io-style">
+          <div class="part">
+           <section>
+            <h3>
+             ����
+            </h3>
+            <p>
+             ���͈͂ȉ��̌`���ŕW�����͂���^������B
+            </p>
+            <pre><var>A_1</var> <var>A_2</var> <var>A_3</var>
+
+</pre>
+           </section>
+          </div>
+          <div class="part">
+           <section>
+            <h3>
+             �o��
+            </h3>
+            <p>
+             <var>
+              A_1+A_2+A_3
+             </var>
+             ��
+             <var>
+              22
+             </var>
+             �ȏ�Ȃ�
+             <code>
+              bust
+             </code>
+             �A
+             <var>
+              21
+             </var>
+             �ȉ��Ȃ�
+             <code>
+              win
+             </code>
+             ���o�͂���B
+            </p>
+           </section>
+          </div>
+         </div>
+         <hr/>
+         <div class="part">
+          <section>
+           <h3>
+            ���͗� 1
+           </h3>
+           <pre>5 7 9
+
+</pre>
+          </section>
+         </div>
+         <div class="part">
+          <section>
+           <h3>
+            �o�͗� 1
+           </h3>
+           <pre>win
+
+</pre>
+           <p>
+            <var>
+             5+7+9=21
+            </var>
+            �Ȃ̂�
+            <code>
+             win
+            </code>
+            ���o�͂��܂��B
+           </p>
+          </section>
+         </div>
+         <hr/>
+         <div class="part">
+          <section>
+           <h3>
+            ���͗� 2
+           </h3>
+           <pre>13 7 2
+
+</pre>
+          </section>
+         </div>
+         <div class="part">
+          <section>
+           <h3>
+            �o�͗� 2
+           </h3>
+           <pre>bust
+
+</pre>
+           <p>
+            <var>
+             13+7+2=22
+            </var>
+            �Ȃ̂�
+            <code>
+             bust
+            </code>
+            ���o�͂��܂��B
+           </p>
+          </section>
+         </div>
+        </span>
+        <span class="lang-en">
+         <p>
+          Score :
+          <var>
+           100
+          </var>
+          points
+         </p>
+         <div class="part">
+          <section>
+           <h3>
+            Problem Statement
+           </h3>
+           <p>
+            Given are three integers
+            <var>
+             A_1
+            </var>
+            ,
+            <var>
+             A_2
+            </var>
+            , and
+            <var>
+             A_3
+            </var>
+            .
+           </p>
+           <p>
+            If
+            <var>
+             A_1+A_2+A_3
+            </var>
+            is greater than or equal to
+            <var>
+             22
+            </var>
+            , print
+            <code>
+             bust
+            </code>
+            ; otherwise, print
+            <code>
+             win
+            </code>
+            .
+           </p>
+          </section>
+         </div>
+         <div class="part">
+          <section>
+           <h3>
+            Constraints
+           </h3>
+           <ul>
+            <li>
+             <var>
+              1 \leq A_i \leq 13 \ \ (i=1,2,3)
+             </var>
+            </li>
+            <li>
+             All values in input are integers.
+            </li>
+           </ul>
+          </section>
+         </div>
+         <hr/>
+         <div class="io-style">
+          <div class="part">
+           <section>
+            <h3>
+             Input
+            </h3>
+            <p>
+             Input is given from Standard Input in the following format:
+            </p>
+            <pre><var>A_1</var> <var>A_2</var> <var>A_3</var>
+
+</pre>
+           </section>
+          </div>
+          <div class="part">
+           <section>
+            <h3>
+             Output
+            </h3>
+            <p>
+             If
+             <var>
+              A_1+A_2+A_3
+             </var>
+             is greater than or equal to
+             <var>
+              22
+             </var>
+             , print
+             <code>
+              bust
+             </code>
+             ; otherwise, print
+             <code>
+              win
+             </code>
+             .
+            </p>
+           </section>
+          </div>
+         </div>
+         <hr/>
+         <div class="part">
+          <section>
+           <h3>
+            Sample Input 1
+           </h3>
+           <pre>5 7 9
+
+</pre>
+          </section>
+         </div>
+         <div class="part">
+          <section>
+           <h3>
+            Sample Output 1
+           </h3>
+           <pre>win
+
+</pre>
+           <p>
+            <var>
+             5+7+9=21
+            </var>
+            , so print
+            <code>
+             win
+            </code>
+            .
+           </p>
+          </section>
+         </div>
+         <hr/>
+         <div class="part">
+          <section>
+           <h3>
+            Sample Input 2
+           </h3>
+           <pre>13 7 2
+
+</pre>
+          </section>
+         </div>
+         <div class="part">
+          <section>
+           <h3>
+            Sample Output 2
+           </h3>
+           <pre>bust
+
+</pre>
+           <p>
+            <var>
+             13+7+2=22
+            </var>
+            , so print
+            <code>
+             bust
+            </code>
+            .
+           </p>
+          </section>
+         </div>
+        </span>
+       </span>
+      </div>
+     </div>
+    </div>
+    <hr/>
+    <div class="a2a_kit a2a_kit_size_20 a2a_default_style pull-right" data-a2a-title="A - Blackjack" data-a2a-url="https://atcoder.jp/contests/abc147/tasks/abc147_a?lang=en">
+     <a class="a2a_button_facebook">
+     </a>
+     <a class="a2a_button_twitter">
+     </a>
+     <a class="a2a_button_telegram">
+     </a>
+     <a class="a2a_dd" href="https://www.addtoany.com/share">
+     </a>
+    </div>
+    <script async="" src="//static.addtoany.com/menu/page.js">
+    </script>
+   </div>
+   <hr/>
+  </div>
+  <div class="container" style="margin-bottom: 80px;">
+   <footer class="footer">
+    <ul>
+     <li>
+      <a href="/contests/abc147/rules">
+       Rule
+      </a>
+     </li>
+     <li>
+      <a href="/contests/abc147/glossary">
+       Glossary
+      </a>
+     </li>
+    </ul>
+    <ul>
+     <li>
+      <a href="/tos">
+       Terms of service
+      </a>
+     </li>
+     <li>
+      <a href="/privacy">
+       Privacy Policy
+      </a>
+     </li>
+     <li>
+      <a href="/personal">
+       Information Protection Policy
+      </a>
+     </li>
+     <li>
+      <a href="/company">
+       Company
+      </a>
+     </li>
+     <li>
+      <a href="/faq">
+       FAQ
+      </a>
+     </li>
+     <li>
+      <a href="/contact">
+       Contact
+      </a>
+     </li>
+    </ul>
+    <div class="text-center">
+     <small id="copyright">
+      Copyright Since 2012 
+      <a href="http://atcoder.co.jp">
+       AtCoder Inc.
+      </a>
+      All rights reserved.
+     </small>
+    </div>
+   </footer>
+  </div>
+  <p class="contest-timer" id="fixed-server-timer">
+  </p>
+  <div id="scroll-page-top" style="display:none;">
+   <span aria-hidden="true" class="glyphicon glyphicon-arrow-up">
+   </span>
+   Page Top
+  </div>
+ </body>
+</html>
