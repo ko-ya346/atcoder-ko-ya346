@@ -1,0 +1,3 @@
+A = dic{}
+A_sort = sorted(dic.items(, key=lambda x:x[*])
+*に添え字を入れる

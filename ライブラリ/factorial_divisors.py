@@ -1,0 +1,17 @@
+import math
+
+N = math.factorial(int(input()))
+print(N)
+def make_divisors(n):
+    divisors = []
+    for i in range(1, int(n**0.5)+1):
+        if n % i == 0:
+            divisors.append(i)
+            if i != n // i:
+                divisors.append(n//i)
+
+    # divisors.sort()
+    return divisors
+
+n = len(make_divisors(N))
+print(n%1000000007)
