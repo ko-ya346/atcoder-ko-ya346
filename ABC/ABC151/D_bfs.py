@@ -12,7 +12,7 @@ def bfs(sh,sw):
   while queue:
     h,w = queue.popleft() #queueの左から位置情報を取り出す
     d = dist[h][w] #現在のマスの数字を保持(移動距離)
-    print("dist", dist)
+    # print("dist", dist)
     for i in [h-1,h+1]: #x軸に前後する
       if s[i][w] == "." and dist[i][w] == -1: #行ける、かつ未踏破のマス
         dist[i][w] = d + 1 #移動距離をメモ

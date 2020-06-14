@@ -1,2 +1,2 @@
-x = input()
-print("Hello", x)
+a = "abab"
+print(a.count("ab"))

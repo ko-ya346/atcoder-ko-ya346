@@ -1,3 +1,9 @@
+import sys
+input = sys.stdin.buffer.readline
+#再帰回数の上限を変更、記入しないとREが発生する場合がある
+sys.setrecursionlimit(10**9)
+
+
 s = input()
 
 n = int(input())
