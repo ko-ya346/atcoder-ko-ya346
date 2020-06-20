@@ -1,11 +1,11 @@
 n = int(input())
 ct = [[0] * 10 for _ in range(10)]
-print(ct)
+# print(ct)
 
 for i in range(n + 1):
     i = str(i)
     ct[int(i[0])][int(i[-1])] += 1
-print(ct)
+# print(ct)
 ans = 0
 for i in range(1, 10):
     ans += ct[i][i] ** 2

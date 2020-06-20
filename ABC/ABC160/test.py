@@ -1,12 +1,12 @@
-from time import time
-start = time()
-a = 0
-for _ in range(1000000):
-    a += 1
-print(time()-start)
+X, Y, A, B, C = map(int, input().split())
+P = sorted(list(map(int, input().split())), reverse=True)
+Q = sorted(list(map(int, input().split())), reverse=True)
+R = sorted(list(map(int, input().split())), reverse=True)
 
-start = time()
-a = ""
-for _ in range(1000000):
-    a += "a"
-print(time()-start)
+ans = sorted(P[:X] + Q[:Y])
+
+for i in range(C):
+    if R[i] > ans[i]:
+        ans[i] = R[i]
+
+print(sum(ans))
