@@ -28,3 +28,13 @@ for _ in range(w):
     cost[x][y] = z
     cost[y][x] = z
 print(dijkstra(0, n, w, cost))
+
+
+'''
+4 4
+1 2 100
+2 3 250
+2 4 200
+3 4 100
+
+'''

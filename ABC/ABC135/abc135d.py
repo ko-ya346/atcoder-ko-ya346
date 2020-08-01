@@ -1,11 +1,30 @@
-import re
-
 s = input()
-s_max = int(s.replace("?","9"))
-s_min = int(s.replace("?","0"))
-s_int = re.findall(r"[0-9]{1}", s)
-s_int_index = s.find(r"[0-9]{1}")
-flag = True
-num = 1
+mod = 10**9+7
 
-print(s_max,s_min,s_int,s_int_index)
+n = len(s)
+#あまりの合計
+res = [1] + [0]*12
+
+for ss in s:
+    dp = [0 for _ in range(13)]
+    for i in range(13):
+        #dp
+        print(f"(10*i)%13 {(10*i)%13}, i {i}")
+        dp[(10*i)%13] = res[i]
+    #倍の長さにする
+    dp += dp
+    print("dp", dp)
+
+    if ss == "?":
+        for i in range(13):
+            print(f"sum(dp[i+4:i+14]) {sum(dp[i+4:i+14])}")
+            res[i] = sum(dp[i+4:i+14])
+    else:
+        for i in range(13):
+            print(f"dp[i+13-int(ss)] {dp[i+13-int(ss)]}")
+            res[i] = dp[i+13-int(ss)]
+    print("res", res)
+
+    #resのカウントをmodで割る
+    res = [v%mod for v in res]
+print(res[5])
