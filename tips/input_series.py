@@ -1,5 +1,8 @@
-a = list(map(int, input().split()))
-a = map(int, input().split())
+import sys
+input = sys.stdin.readline
 
-a = [list(map(int, input().split())) for _ in range(N)]
-a = [int(input()) for _ in range(N)]
+list(map(int, input().split()))
+map(int, input().split())
+
+[list(map(int, input().split())) for _ in range(N)]
+[int(input()) for _ in range(N)]
